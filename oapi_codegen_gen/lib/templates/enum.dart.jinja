@@ -1,0 +1,6 @@
+enum {{ schema['name'] }} {
+{% for prop in schema['values'] %}
+  @JsonValue('{{ prop['value'] }}')
+  {{ prop['name'] }},
+{%- endfor %}
+}

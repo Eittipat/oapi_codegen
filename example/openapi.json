@@ -1,0 +1,1335 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Example API",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api/v1/example/user:sign-in": {
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Sign In",
+                "operationId": "sign_in_api_v1_example_user_sign_in_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignInBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse",
+                                    "title": "Response Sign In Api V1 example User Sign In Post"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Default Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/example/user": {
+            "get": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Get User",
+                "operationId": "get_user_api_v1_example_user_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse",
+                                    "title": "Response Get User Api V1 example User Get"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Default Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/example/user:accept-consent": {
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Accept Consent",
+                "operationId": "accept_consent_api_v1_example_user_accept_consent_post",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AcceptConsentResponse",
+                                    "title": "Response Accept Consent Api V1 example User Accept Consent Post"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Default Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AcceptConsentResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/example/assets": {
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Create Asset",
+                "operationId": "create_asset_api_v1_example_assets_post",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateAssetBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAssetResponse",
+                                    "title": "Response Create Asset Api V1 example Assets Post"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Default Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAssetResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/example/sessions": {
+            "get": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "List Session",
+                "operationId": "list_session_api_v1_example_sessions_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListSessionResponse",
+                                    "title": "Response List Session Api V1 example Sessions Get"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Default Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListSessionResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Create Session",
+                "operationId": "create_session_api_v1_example_sessions_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateSessionBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateSessionResponse",
+                                    "title": "Response Create Session Api V1 example Sessions Post"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Default Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateSessionResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/example/sessions/{session_id}:query": {
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Query Session",
+                "operationId": "query_session_api_v1_example_sessions__session_id__query_post",
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "session_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Session Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Query Session Api V1 example Sessions  Session Id  Query Post",
+                                    "$ref": "#/components/schemas/QuerySessionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QuerySessionResponse"
+                                }
+                            }
+                        },
+                        "description": "Default Response"
+                    }
+                }
+            }
+        },
+        "/api/v1/example/sessions/{session_id}:submit": {
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Submit Session",
+                "operationId": "submit_session_api_v1_example_sessions__session_id__submit_post",
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "session_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Session Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SubmitSessionBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Submit Session Api V1 example Sessions  Session Id  Submit Post",
+                                    "$ref": "#/components/schemas/SubmitSessionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SubmitSessionResponse"
+                                }
+                            }
+                        },
+                        "description": "Default Response"
+                    }
+                }
+            }
+        },
+        "/api/v1/example/sessions/{session_id}:close": {
+            "post": {
+                "tags": [
+                    "example"
+                ],
+                "summary": "Close Session",
+                "operationId": "close_session_api_v1_example_sessions__session_id__close_post",
+                "security": [
+                    {
+                        "HTTPBearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "session_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Session Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CloseSessionBody"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Close Session Api V1 example Sessions  Session Id  Close Post",
+                                    "$ref": "#/components/schemas/CloseSessionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CloseSessionResponse"
+                                }
+                            }
+                        },
+                        "description": "Default Response"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AcceptConsentResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "AcceptConsentResponse"
+            },
+            "Answer": {
+                "properties": {
+                    "exam_id": {
+                        "type": "integer",
+                        "title": "Exam Id"
+                    },
+                    "answer_audio": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Audio"
+                    },
+                    "answer_choice": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Choice"
+                    },
+                    "answer_text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Text"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "exam_id",
+                    "answer_audio",
+                    "answer_choice",
+                    "answer_text"
+                ],
+                "title": "Answer"
+            },
+            "Asset": {
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "title": "Asset"
+            },
+            "AuthInfo": {
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "title": "Token"
+                    },
+                    "user_info": {
+                        "$ref": "#/components/schemas/UserInfo"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "token",
+                    "user_info"
+                ],
+                "title": "AuthInfo"
+            },
+            "CloseSessionBody": {
+                "properties": {
+                    "recordings": {
+                        "items": {
+                            "$ref": "#/components/schemas/RecordedFile"
+                        },
+                        "type": "array",
+                        "title": "Recordings"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "recordings"
+                ],
+                "title": "CloseSessionBody"
+            },
+            "CloseSessionResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "CloseSessionResponse"
+            },
+            "CreateAssetBody": {
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "format": "binary",
+                        "title": "File",
+                        "@oapi-type": "File"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "file"
+                ],
+                "title": "CreateAssetBody"
+            },
+            "CreateAssetResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Asset"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "CreateAssetResponse"
+            },
+            "CreateSessionBody": {
+                "properties": {
+                    "photo": {
+                        "type": "string",
+                        "title": "Photo",
+                        "description": "base64 encoded photo"
+                    },
+                    "is_practice": {
+                        "type": "boolean",
+                        "title": "Is Practice"
+                    },
+                    "group": {
+                        "$ref": "#/components/schemas/SessionGroup"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SessionType"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "photo",
+                    "is_practice",
+                    "group",
+                    "type"
+                ],
+                "title": "CreateSessionBody"
+            },
+            "CreateSessionResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Session"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "CreateSessionResponse"
+            },
+            "ErrorResponse": {
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "title": "Code"
+                    },
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "title": "ErrorResponse"
+            },
+            "Exam": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "title": "Slug"
+                    },
+                    "duration": {
+                        "type": "integer",
+                        "title": "Duration"
+                    },
+                    "group": {
+                        "type": "string",
+                        "title": "Group"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/ExamType"
+                    },
+                    "question_title": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question Title"
+                    },
+                    "question_text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question Text"
+                    },
+                    "question_image": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question Image"
+                    },
+                    "question_dialogue_1_speaker": {
+                        "type": "string",
+                        "title": "Question Dialogue 1 Speaker"
+                    },
+                    "question_dialogue_1_text": {
+                        "type": "string",
+                        "title": "Question Dialogue 1 Text"
+                    },
+                    "question_dialogue_2_speaker": {
+                        "type": "string",
+                        "title": "Question Dialogue 2 Speaker"
+                    },
+                    "question_dialogue_2_text": {
+                        "type": "string",
+                        "title": "Question Dialogue 2 Text"
+                    },
+                    "question_dialogue_3_speaker": {
+                        "type": "string",
+                        "title": "Question Dialogue 3 Speaker"
+                    },
+                    "question_dialogue_3_text": {
+                        "type": "string",
+                        "title": "Question Dialogue 3 Text"
+                    },
+                    "question_audio": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question Audio"
+                    },
+                    "question_video": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question Video"
+                    },
+                    "answer_title": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Title"
+                    },
+                    "answer_description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Description"
+                    },
+                    "answer_option_1_text": {
+                        "type": "string",
+                        "title": "Answer Option 1 Text"
+                    },
+                    "answer_option_2_text": {
+                        "type": "string",
+                        "title": "Answer Option 2 Text"
+                    },
+                    "answer_option_3_text": {
+                        "type": "string",
+                        "title": "Answer Option 3 Text"
+                    },
+                    "answer_audio": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Audio"
+                    },
+                    "answer_choice": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Choice"
+                    },
+                    "answer_text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Answer Text"
+                    },
+                    "max_playing_time": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Max Playing Time"
+                    },
+                    "max_speaking_time": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Max Speaking Time"
+                    },
+                    "min_speaking_duration": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Min Speaking Duration"
+                    },
+                    "max_speaking_duration": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Max Speaking Duration"
+                    },
+                    "min_words": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Min Words"
+                    },
+                    "max_words": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Max Words"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "slug",
+                    "duration",
+                    "group",
+                    "type",
+                    "question_title",
+                    "question_text",
+                    "question_image",
+                    "question_dialogue_1_speaker",
+                    "question_dialogue_1_text",
+                    "question_dialogue_2_speaker",
+                    "question_dialogue_2_text",
+                    "question_dialogue_3_speaker",
+                    "question_dialogue_3_text",
+                    "question_audio",
+                    "question_video",
+                    "answer_title",
+                    "answer_description",
+                    "answer_option_1_text",
+                    "answer_option_2_text",
+                    "answer_option_3_text",
+                    "answer_audio",
+                    "answer_choice",
+                    "answer_text",
+                    "max_playing_time",
+                    "max_speaking_time",
+                    "min_speaking_duration",
+                    "max_speaking_duration",
+                    "min_words",
+                    "max_words"
+                ],
+                "title": "Exam"
+            },
+            "ExamType": {
+                "type": "string",
+                "enum": [
+                    "LISTENING",
+                    "VOCABULARY",
+                    "SPEAKING",
+                    "GRAMMAR",
+                    "READING",
+                    "WRITING"
+                ],
+                "title": "ExamType"
+            },
+            "GetUserResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/UserInfo"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetUserResponse"
+            },
+            "ListSessionResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/Session"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "ListSessionResponse"
+            },
+            "QuerySessionData": {
+                "properties": {
+                    "results": {
+                        "items": {
+                            "$ref": "#/components/schemas/Exam"
+                        },
+                        "type": "array",
+                        "title": "Results"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "results"
+                ],
+                "title": "QuerySessionData"
+            },
+            "QuerySessionResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/QuerySessionData"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "QuerySessionResponse"
+            },
+            "RecordedFile": {
+                "properties": {
+                    "asset_id": {
+                        "type": "string",
+                        "title": "Asset Id"
+                    },
+                    "recorded_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Recorded At",
+                        "@oapi-type": "DateTime"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "asset_id",
+                    "recorded_at"
+                ],
+                "title": "RecordedFile"
+            },
+            "Session": {
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "Id"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/SessionStatus"
+                    },
+                    "group": {
+                        "$ref": "#/components/schemas/SessionGroup"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SessionType"
+                    },
+                    "quota": {
+                        "type": "integer",
+                        "title": "Quota"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "status",
+                    "group",
+                    "type",
+                    "quota"
+                ],
+                "title": "Session"
+            },
+            "SessionGroup": {
+                "type": "string",
+                "enum": [
+                    "ENGLISH",
+                    "DIGITAL"
+                ],
+                "title": "SessionGroup"
+            },
+            "SessionStatus": {
+                "type": "string",
+                "enum": [
+                    "OPENED",
+                    "CLOSED"
+                ],
+                "title": "SessionStatus"
+            },
+            "SessionType": {
+                "type": "string",
+                "enum": [
+                    "CORE",
+                    "SPEAKING",
+                    "WRITING"
+                ],
+                "title": "SessionType"
+            },
+            "SignInBody": {
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "title": "Username"
+                    },
+                    "password": {
+                        "type": "string",
+                        "title": "Password"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "password"
+                ],
+                "title": "SignInBody"
+            },
+            "SignInResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/AuthInfo"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "SignInResponse"
+            },
+            "SubmitSessionBody": {
+                "properties": {
+                    "answers": {
+                        "items": {
+                            "$ref": "#/components/schemas/Answer"
+                        },
+                        "type": "array",
+                        "title": "Answers"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "answers"
+                ],
+                "title": "SubmitSessionBody"
+            },
+            "SubmitSessionResponse": {
+                "properties": {
+                    "data": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    },
+                    "error": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ErrorResponse"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "SubmitSessionResponse"
+            },
+            "UserInfo": {
+                "properties": {
+                    "user_id": {
+                        "type": "integer",
+                        "title": "User Id"
+                    },
+                    "first_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "First Name"
+                    },
+                    "last_name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Last Name"
+                    },
+                    "school": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "School"
+                    },
+                    "district": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "District"
+                    },
+                    "province": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Province"
+                    },
+                    "consent_accepted": {
+                        "type": "boolean",
+                        "title": "Consent Accepted"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "user_id",
+                    "first_name",
+                    "last_name",
+                    "school",
+                    "district",
+                    "province",
+                    "consent_accepted"
+                ],
+                "title": "UserInfo"
+            }
+        },
+        "securitySchemes": {
+            "HTTPBearer": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

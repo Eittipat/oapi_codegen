@@ -1,0 +1,34 @@
+@serializable
+class {{ schema['name'] }} extends Equatable {
+{% for prop in schema['fields'] %}
+  final {{ prop['type'] }} {{ prop['name'] }};
+{%- endfor %}
+
+  const {{ schema['name'] }}({
+{%- for prop in schema['fields'] %}
+    {% if prop['required'] == true %}required {% endif %}this.{{ prop['name'] }}{% if prop['default'] %} = {{ prop['default'] }}{% endif %},{% endfor %}
+  });
+
+  factory {{ schema['name'] }}.fromJson(Map<String, dynamic> json) =>
+        {{ schema['json_name'] }}FromJson(json);
+
+  Map<String, dynamic> toJson() => {{ schema['json_name'] }}ToJson(this);
+
+  @override
+  List<Object?> get props => [{% for prop in schema['fields'] %}
+  {{ prop['name'] }},
+  {%- endfor %}
+  ];
+
+  {{ schema['name'] }} copyWith({
+    {% for prop in schema['fields'] -%}
+        {{ prop['type'] }} Function()? {{ prop['name'] }},
+    {% endfor -%}
+  }) {
+    return {{ schema['name'] }}(
+      {% for prop in schema['fields'] -%}
+      {{ prop['name'] }}: {{ prop['name'] }} != null ? {{ prop['name'] }}() : this.{{ prop['name'] }},
+      {% endfor -%}
+    );
+  }
+}

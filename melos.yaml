@@ -1,0 +1,4 @@
+name: oapi_codegen
+
+packages:
+  - .

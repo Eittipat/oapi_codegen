@@ -1,0 +1,51 @@
+part of '{{ part_of }}';
+
+
+{% for schema in classes %}
+
+{% include 'class.dart.jinja' %}
+
+{% endfor %}
+
+{% for schema in enums %}
+
+{% include 'enum.dart.jinja' %}
+
+{% endfor %}
+
+{% for method in methods %}
+
+{% include 'parameter.dart.jinja' %}
+
+{% endfor %}
+
+abstract class _${{ name }} {
+  final Dio dio;
+  final Logger logger;
+
+  _${{ name }}({
+    required this.dio,
+    Logger? logger,
+  }) : logger = logger ?? Logger("{{ name }}");
+
+{% for method in methods %}
+
+{% include 'method.dart.jinja' %}
+
+{% endfor %}
+}
+
+sealed class {{ name }}Exception implements Exception {
+  Exception exception;
+
+  {{ name }}Exception(this.exception);
+
+  @override
+  String toString() {
+    return exception.toString();
+  }
+}
+
+class {{ name }}UnhandledException extends {{ name }}Exception {
+  {{ name }}UnhandledException(super.exception);
+}

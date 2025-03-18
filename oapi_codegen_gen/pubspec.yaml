@@ -1,0 +1,16 @@
+name: oapi_codegen_gen
+description: OpenAPI code generator generator
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  analyzer: ^7.3.0
+  build: ^2.4.2
+  jinja: ^0.6.2
+  oapi_codegen:
+    path: ../oapi_codegen
+  source_gen: 2.0.0
+  package_config: ^2.2.0

@@ -1,0 +1,10 @@
+builders:
+  oapi_codegen_gen:
+    target: ":oapi_codegen_gen"
+    import: "package:oapi_codegen_gen/builder.dart"
+    builder_factories: [ "oapiCodeGen"]
+    build_extensions: { ".dart": [ ".apis.dart" ] }
+    auto_apply: dependents
+    build_to: source
+    applies_builders: [ "source_gen|combining_builder" ]
+    runs_before: ["json_serializable"]

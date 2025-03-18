@@ -1,0 +1,35 @@
+Future<{{ method['response']}}> {{ method['name'] }}(
+{% if method['has_parameters'] %}
+{{ method["request"] }} param,
+{%- endif %}
+) async {
+    try {
+      final response = await dio.{{ method['method'] }}(
+        "{{ method['path'] }}",
+        {% if method['parameters']['json'] %}
+        data: param.toJsonData(),
+        {%- endif %}
+
+        {% if method['parameters']['form'] %}
+        data: param.toFormData(),
+        {%- endif %}
+
+        {% if method['parameters']['query'] %}
+        queryParameters: param.toQueryParam(),
+        {%- endif %}
+      );
+      return {{ method['response'] }}.fromJson(response.data);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        logger.warning("received status code ${e.response!.statusCode}");
+      }
+      if (e.response != null &&
+          [400, 404, 422].contains(e.response!.statusCode)) {
+        return {{ method['response'] }}.fromJson(e.response!.data);
+      } else {
+        rethrow;
+      }
+    } on Exception catch (e) {
+      throw {{ name }}UnhandledException(e);
+    }
+}

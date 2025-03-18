@@ -1,0 +1,70 @@
+
+{% if method['has_parameters'] %}
+
+class {{ method['request'] }} {
+  {% for prop in method['parameters']['path'] %}
+  final {{ prop['type'] }} {{ prop['name'] }};
+  {%- endfor %}
+  {% for prop in method['parameters']['query'] %}
+  final {{ prop['type'] }} {{ prop['name'] }};
+  {%- endfor %}
+  {% if method['parameters']['json'] %}
+  final {{ method['parameters']['json']['type'] }} {{ method['parameters']['json']['name'] }};
+  {%- endif %}
+  {% if method['parameters']['form'] %}
+  final {{ method['parameters']['form']['type'] }} {{ method['parameters']['form']['name'] }};
+  {%- endif %}
+
+  {{ method['request'] }}({
+    {% for prop in method['parameters']['path'] %}
+    {% if prop['required'] == true %}required {% endif %}this.{{ prop['name'] }}{% if prop['default'] %} = {{ prop['default'] }}{% endif %},
+    {%- endfor %}
+    {% for prop in method['parameters']['query'] %}
+    {% if prop['required'] == true %}required {% endif %}this.{{ prop['name'] }}{% if prop['default'] %} = {{ prop['default'] }}{% endif %},
+    {%- endfor %}
+    {% if method['parameters']['json'] %}
+    {% set prop = method['parameters']['json'] %}
+    {% if prop['required'] == true %}required {% endif %}this.{{ prop['name'] }}{% if prop['default'] %} = {{ prop['default'] }}{% endif %},
+    {%- endif %}
+    {% if method['parameters']['form'] %}
+    {% set prop = method['parameters']['form'] %}
+    {% if prop['required'] == true %}required {% endif %}this.{{ prop['name'] }}{% if prop['default'] %} = {{ prop['default'] }}{% endif %},
+    {%- endif %}
+  });
+
+  {% if method['parameters']['query'] | length > 0 %}
+  Map<String, dynamic> toQueryParam() {
+    return {
+      {% for prop in method['parameters']['query'] %}
+      {% if prop['required'] == false and prop['default'] == None %}if ({{ prop['name'] }} != null){% endif %}
+      "{{ prop['name'] }}": {{ prop['name'] }},
+      {%- endfor %}
+    };
+  }
+  {% endif %}
+
+  {% if method['parameters']['form'] %}
+  {% set form = method['parameters']['form'] %}
+  FormData toFormData() {
+      return FormData.fromMap({
+        {% for prop in form['model']['fields'] %}
+          {% if prop['required'] == false %}if ({{ prop['name'] }} != null){% endif %}
+            {% if prop['type'] == 'File' %}
+            '{{ prop['name'] }}': MultipartFile.fromFileSync({{ form['name'] }}.{{ prop['name'] }}.path),
+            {%- else %}
+            '{{ prop['name'] }}':{{ form['name'] }}.{{ prop['name'] }},
+            {%- endif %}
+        {%- endfor %}
+      });
+  }
+  {% endif %}
+
+
+  {% if method['parameters']['json'] %}
+  {% set prop = method['parameters']['json'] %}
+  {{ prop['type'] }} toJsonData() {
+    return {{ prop['name'] }};
+  }
+  {% endif %}
+}
+{% endif %}
